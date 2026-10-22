@@ -1,0 +1,68 @@
+CSCI-3330 Homework 5 terminal setup evidence
+
+Original PowerShell transcript excerpt follows.
+Native program output was shown in the terminal but omitted by Start-Transcript.
+Configuration and dependency checks with captured output follow the excerpt.
+
+PS> node --version
+
+PS> npm --version
+
+PS> New-Item -ItemType File index.js
+
+    Directory: C:\Users\Baile\UTRGV Fall Semester\CSCI-3330\Homework 5\guess-the-number
+
+Mode                 LastWriteTime         Length Name
+----                 -------------         ------ ----
+-a---          10/21/2026  7:10 PM              0 index.js
+PS> npm init -y
+
+PS> npm pkg set type=module scripts.start="node index.js" private=true
+
+PS> npm pkg set private=true --json
+
+PS> npm pkg delete scripts.test
+
+PS> npm install --save-exact prompts chalk
+
+PS> npm ls --depth=0
+
+PS> git init -b main
+
+PS> git add .gitignore index.js package.json package-lock.json
+
+PS> git commit -m "Initialize Node project with prompts and chalk"
+
+**********************
+PowerShell transcript end
+End time: 20261021191032
+**********************
+Independent terminal verification:
+PS> node --version
+v24.22.0
+PS> npm ci
+
+added 4 packages, and audited 5 packages in 1s
+
+1 package is looking for funding
+  run `npm fund` for details
+
+found 0 vulnerabilities
+PS> npm ls --depth=0
+guess-the-number@1.0.0 C:\Users\Baile\UTRGV Fall Semester\CSCI-3330\Homework 5\guess-the-number
+├── chalk@6.0.1
+└── prompts@2.4.2
+
+PS> npm pkg get type scripts dependencies
+{
+  "type": "module",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "dependencies": {
+    "chalk": "6.0.1",
+    "prompts": "2.4.2"
+  }
+}
+PS> node --check index.js
+Exit code: 0
