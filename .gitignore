@@ -1,0 +1,4 @@
+node_modules/
+game-output.txt
+.env
+.env.*
